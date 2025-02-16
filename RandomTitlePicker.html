@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Family fun weekend</h2>
+
+<p>Your movie name is </p>
+
+<p id="movieName"></p>
+
+<script>
+function rand(min, max){
+    return (Math.floor(Math.pow(10,14)*Math.random()*Math.random())%(max-min+1))+min;
+}
+
+document.getElementById("movieName").innerHTML = rand(1,64);
+</script>
+
+</body>
+</html>
