@@ -7,6 +7,8 @@
 <p>Your movie name is </p>
 
 <p id="movieName"></p>
+
+<p><button onclick="pickRandomMovieBtnHelper()">Pick next movie</button></p>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" />
 <script>
 function rand(min, max){
@@ -14,14 +16,17 @@ function rand(min, max){
 }
 $(document).ready(function () {
     $.ajax({
-        url: "https://github.com/2409akshay/FamilyFunWeekend/blob/main/Input.json",
+        url: "https://raw.githubusercontent.com/2409akshay/FamilyFunWeekend/refs/heads/main/Input.json",
         dataType: "json"
     }).done(function (result) {
-        console.log(result);
+        function pickRandomMovieBtnHelper() {
+            document.getElementById("movieName").innerHTML = result[rand(1, 64)];
+        }
+        
     });
 
 });
-document.getElementById("movieName").innerHTML = rand(1,64);
+
 </script>
 
 </body>
