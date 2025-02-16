@@ -7,12 +7,20 @@
 <p>Your movie name is </p>
 
 <p id="movieName"></p>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" />
 <script>
 function rand(min, max){
     return (Math.floor(Math.pow(10,14)*Math.random()*Math.random())%(max-min+1))+min;
 }
+$(document).ready(function () {
+    $.ajax({
+        url: "https://github.com/2409akshay/FamilyFunWeekend/blob/main/Input.json",
+        dataType: "json"
+    }).done(function (result) {
+        console.log(result);
+    });
 
+});
 document.getElementById("movieName").innerHTML = rand(1,64);
 </script>
 
