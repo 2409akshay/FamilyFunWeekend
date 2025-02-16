@@ -1,35 +1,31 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body align="Center">
 
-<h2>Family fun weekend</h2>
+    <script>
+        const movieArray = ["Anand", "Bobby", "Sholay", "Don", "Mr. India", "Dilwale Dulhania Le Jayenge", "Deewaar", "Trishul", "Qayamat Se Qayamat Tak", "Khalnayak", "Dhoom", "Race", "Singham", "Gol Maal", "Jaane Bhi Do Yaaro", "Andaz Apna Apna", "Hera Pheri", "Munna Bhai M.B.B.S.", "Lage Raho Munna Bhai", "3 Idiots", "Mother India", "Kagaz Ke Phool", "Bandini", "Ardh Satya", "Roja", "Bombay", "Black", "Taare Zameen Par", "Chak De! India", "Barsaat", "Chachi 420", "Pyasa", "Kaagaz Ke Phool", "Dil Ek Mandir", "Sangam", "Aradhana", "Kati Patang", "Abhimaan", "Kabhi Kabhie", "Ek Duuje Ke Liye", "Maine Pyar Kiya", "Kuch Kuch Hota Hai", "Hum Dil De Chuke Sanam", "Devdas", "Veer-Zaara", "Rab Ne Bana Di Jodi", "Yeh Jawaani Hai Deewani", "Baiju Bawra", "Mughal-e-Azam", "Guide", "Jewel Thief", "Yaadon Ki Baaraat", "Amar Akbar Anthony", "Disco Dancer", "Aashiqui", "Hum Aapke Hain Koun..!", "Dil Se..", "Taal", "Kal Ho Naa Ho", "Rockstar", "Aashiqui 2", "The Legend of Bhagat Singh", "Jodhaa Akbar", "Bhaag Milkha Bhaag", "Koi... Mil Gaya", "Krrish", "Ra.One"];
 
-<p>Your movie title is </p>
+        function rand(min, max) {
+            return (Math.floor(Math.pow(10, 14) * Math.random() * Math.random()) % (max - min + 1)) + min;
+        }
 
-<p id="movieName"></p>
-
-<p><button onclick="pickRandomMovieBtnHelper()">Pick next movie</button></p>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" />
-<script>
-function rand(min, max){
-    return (Math.floor(Math.pow(10,14)*Math.random()*Math.random())%(max-min+1))+min;
-}
-$(document).ready(function () {
-    $.ajax({
-        url: "https://raw.githubusercontent.com/2409akshay/FamilyFunWeekend/refs/heads/main/Input.json",
-        dataType: "json"
-    }).done(function (result) {
-        function pickRandomMovieBtnHelper() {
-            var mTitle = result[rand(1, 64)];
-            console.log(mTitle)
+        function pickNextMovieHelper() {
+            var mTitle = movieArray[rand(1, movieArray.length - 1)];
+            console.log(mTitle);
             document.getElementById("movieName").innerHTML = mTitle;
         }
-        
-    });
 
-});
+        //document.getElementById("picknextMovie").onclick = pickNextmovieHelper;
 
-</script>
+    </script>
+    <h1>Family fun weekend</h1>
 
+    <h3>Your movie title is </h3>
+
+    <h3 id="movieName"></h3>
+
+    <p>
+        <button onclick="pickNextMovieHelper()">Pick Next Movie</button>
+    </p>
 </body>
 </html>
