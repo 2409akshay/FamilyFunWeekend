@@ -4,7 +4,7 @@
 
 <h2>Family fun weekend</h2>
 
-<p>Your movie name is </p>
+<p>Your movie title is </p>
 
 <p id="movieName"></p>
 
@@ -20,7 +20,9 @@ $(document).ready(function () {
         dataType: "json"
     }).done(function (result) {
         function pickRandomMovieBtnHelper() {
-            document.getElementById("movieName").innerHTML = result[rand(1, 64)];
+            var mTitle = result[rand(1, 64)];
+            console.log(mTitle)
+            document.getElementById("movieName").innerHTML = mTitle;
         }
         
     });
